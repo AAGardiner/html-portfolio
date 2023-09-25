@@ -1,0 +1,28 @@
+body {
+  background-color: #fff2cc;
+}
+h1 {
+  color: orange;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 3rem;
+  padding: 10px
+}
+
+#poster {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 100px;
+    font-family: "Libre Baskerville", serif;
+    text-align: center;
+}
+img {
+  padding: 10px;
+  border: 10px solid #ffd966;
+  width: 100%;
+}
+
+h2 {
+  color: #dfa67b;
+  padding: 10px;
+}
