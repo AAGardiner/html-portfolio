@@ -1,40 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ed and Age</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="poster">
-      <h1>AGE IS JUST A NUMBER</h1>
-      <img src="https://github.com/AAGardiner/html-portfolio/blob/main/IMG-20230913-WA0002.jpg?raw=true"> 
-      <h2>That look you give when she pulls out a green driver's license</h2>
-      
-    </div>
-  </body>
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Big Question</title>
+    <style>
+        /* Apply a background image of a male chicken (rooster) */
+        body {
+            background-image: url('https://www.pinterest.com/pin/713820609720940505/'); /* Replace with your image URL */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent tiling */
+            font-family: Arial, sans-serif; /* Use a legible font */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        fieldset {
+            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background to the form */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            max-width: 400px;
+        }
+
+        .celebration {
+            font-size: 2em;
+            color: #ffcc00;
+            animation: bounce 1s infinite; /* Apply bounce animation */
+        }
+        .almost {
+            font-size: 2em;
+            color: #0000ff;
+        }
+        .incorrect {
+            font-size: 2em;
+            color: red;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Keyframes for bounce animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0); /* Start at the original position */
+            }
+            40% {
+                transform: translateY(-30px); /* Move up */
+            }
+            60% {
+                transform: translateY(-15px); /* Move down a bit */
+            }
+        }
+    </style>
+</head>   
+<body> 
+    <h1>The Big Question</h1> 
+    <fieldset> 
+        <legend>Have your say</legend>
+        <p>Has Mo got a small cock?</p> 
+        <form id="responseForm">
+            <label>
+                <input id="Yes" type="radio" name="response" value="Yes"> Yes
+            </label>
+            <label>
+                <input id="Definitely" type="radio" name="response" value="Definitely"> Definitely
+            </label>
+            <label>
+                <input id="No" type="radio" name="response" value="No"> No
+            </label>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+    </fieldset> 
+
+    <script>
+        document.getElementById('responseForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+            
+            const resultDiv = document.getElementById('result');
+            const selectedOption = document.querySelector('input[name="response"]:checked');
+
+            if (!selectedOption) {
+                resultDiv.innerHTML = 'Please select an option.';
+                resultDiv.className = 'error'; // Set error class for styling
+                return;
+            }
+
+            const selectedValue = selectedOption.value;
+            
+            // Handle different selections
+            if (selectedValue === 'Definitely') {
+                resultDiv.innerHTML = '🎉 Congratulations! 🎉';
+                resultDiv.className = 'celebration';
+            } else if (selectedValue === 'Yes') {
+                resultDiv.innerHTML = 'Almost.';
+                resultDiv.className = 'almost';
+            } else if (selectedValue === 'No') {
+                resultDiv.innerHTML = '❌ Incorrect!';
+                resultDiv.className = 'incorrect';
+            } else {
+                resultDiv.innerHTML = ''; // Clear the result div for any other unexpected case
+                resultDiv.className = ''; // Reset class name
+            }
+        });
+    </script>
+</body> 
 </html>
 
-<!-- 
-  TODO: Create a motivational post website.
-Style it how ever you like. 
-Look at the goal image for inspiration.
-But it must have the following features:
-1. The main h1 text should be using the Regular Libre Baskerville Font from Google Fonts:
-  https://fonts.google.com/specimen/Libre+Baskerville
-2. The text should be white and background black.
-3. Add your own image into the images folder inside assets. It should have a 5px white border.
-4. The text should be center aligned.
-5. Create a div to contain the h1, p and img elements. Adjust the margins so that the image and text are centered on the page. 
-  Hint: You horizontally center a div by giving it a width of 50% and a margin-left of 25%.
-  Hint: Set the image to have a width of 100% so it fills the div. 
-6. Read about the text-transform property on MDN docs to make the h1 uppercase with CSS.
-  https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform 
--->
+
